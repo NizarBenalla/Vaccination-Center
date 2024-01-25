@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Centre Vaccination</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #dee2e6;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #e2ecf5;
+            border: 2px solid #007bff; /* Blue border color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff; /* Blue header color */
+            color: #ffffff;
+            border-bottom: 2px solid #0056b3;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-label {
+            color: #495057;
+        }
+
+        .form-control {
+            border: 1px solid #6c757d; /* Blueish-gray border color */
+            border-radius: 5px;
+            padding: 8px;
+        }
+
+        .btn-success {
+            background-color: #007bff; /* Blue button color */
+            border: 1px solid #0056b3;
+            border-radius: 5px;
+            color: #ffffff;
+            padding: 10px 20px;
+        }
+
+        .btn-success:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header"><h3>Add Centre Vaccination</h3></div>
+        <div class="card-body">
+            <form method="post" th:action="@{/saveCentreVaccination}">
+                <div class="mb-3">
+                    <label for="nom" class="form-label">Nom:</label>
+                    <input type="text" class="form-control" id="nom" name="nom" required>
+                </div>
+                <div class="mb-3">
+                    <label for="adresse" class="form-label">Adresse:</label>
+                    <input type="text" class="form-control" id="adresse" name="adresse" required>
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

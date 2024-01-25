@@ -1,0 +1,35 @@
+<!-- addCitoyen.html -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Citoyen</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header">
+            <h3>Ajouter Citoyen</h3>
+        </div>
+        <div class="card-body">
+            <form method="post" th:action="@{/saveCitoyen}">
+                <div class="mb-3">
+                    <label for="nom" class="form-label">Nom:</label>
+                    <input type="text" class="form-control" id="nom" name="nom" required>
+                </div>
+                <div class="mb-3">
+                    <label for="centreVaccination" class="form-label">Centre Vaccination:</label>
+                    <input type="text" class="form-control" id="centreVaccination" name="centreVaccination" th:value="${selectedCentre.nom}" readonly>
+                    <!-- Update the name attribute to match the controller's parameter name -->
+                    <input type="hidden" name="centreVaccinationId" th:value="${selectedCentre.id}">
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+                <a th:href="@{citoyens/centre(id=${selectedCentre.id})}" class="btn btn-secondary">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
