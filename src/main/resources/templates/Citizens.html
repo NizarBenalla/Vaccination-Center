@@ -4,64 +4,61 @@
       layout:decorate="template1">
 <head>
     <meta charset="UTF-8">
-    <title>Client VACCINATION</title>
+    <title>Vaccination Client Dashboard</title>
     <link rel="stylesheet" href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css">
 </head>
 <body>
 <div layout:fragment="content1">
 
-    <div class="container mt-2" >
+    <div class="container mt-2">
         <div class="card">
-            <div class="card-header"><h3> Liste des CITOYENS </h3></div>
+            <div class="card-header"><h3> List of CITIZENS </h3></div>
             <div class="card-body">
                 <form method="get" th:action="@{index}">
-                    <label>Key word</label>
+                    <label>Search Term</label>
                     <input type="text" name="keyword" th:value="${keyword}">
-                    <button type="submit" class="btn btn-primary">Chercher</button>
+                    <button type="submit" class="btn btn-primary">Search</button>
                 </form>
                 <br>
                 <div class="d-flex">
                     <form method="get" th:action="@{addCitoyen}" class="me-2">
-                        <button type="submit" class="btn btn-success">Ajouter Citoyen</button>
+                        <button type="submit" class="btn btn-success">Add Citizen</button>
                     </form>
 
-                    <!-- Add form for adding a new vaccination center -->
+                    <!-- Form for adding a new vaccination center -->
                     <form method="get" th:action="@{addVaccinationCenter}">
-                        <button type="submit" class="btn btn-success">Ajouter Centre de Vaccination</button>
+                        <button type="submit" class="btn btn-success">Add Vaccination Center</button>
                     </form>
                 </div>
                 <table class="table">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nom</th>
-                        <th>Centre Vaccination</th>
+                        <th>Name</th>
+                        <th>Vaccination Center</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="p:${citoyens}">
-                        <td th:text="${p.id}"></td>
-                        <td th:text="${p.nom}"></td>
-                        <td th:text="${p.centreVaccination.getNom()}" > </td>
+                    <tr th:each="citizen:${citizens}">
+                        <td th:text="${citizen.id}"></td>
+                        <td th:text="${citizen.nom}"></td>
+                        <td th:text="${citizen.centreVaccination.getNom()}"></td>
                         <td>
-                            <!-- Add a new button for viewing all citizens of the same vaccination center -->
-                            <a class="btn btn-info" th:href="@{/citoyens/centre(id=${p.centreVaccination.getId()})}">
+                            <!-- Button for viewing all citizens of the same vaccination center -->
+                            <a class="btn btn-info" th:href="@{/citizens/centre(id=${citizen.centreVaccination.getId()})}">
                                 View Citizens
                             </a>
                         </td>
-
-
                         <td>
-                            <a onclick="return confirm('Etes vous sure ?')" class="btn btn-danger" th:href="@{delete(id=${p.id}, keyword=${keyword}, page=${currentPage})}">
+                            <a onclick="return confirm('Are you sure?')" class="btn btn-danger" th:href="@{delete(id=${citizen.id}, keyword=${keyword}, page=${currentPage})}">
                                 Delete
                             </a>
                         </td>
                         <td>
-                            <a  class="btn btn-success" th:href="@{editPatient(id=${p.id}, keyword=${keyword}, page=${currentPage})}">
+                            <a class="btn btn-success" th:href="@{editPatient(id=${citizen.id}, keyword=${keyword}, page=${currentPage})}">
                                 Edit
                             </a>
                         </td>
-
                     </tr>
                     </tbody>
                 </table>
