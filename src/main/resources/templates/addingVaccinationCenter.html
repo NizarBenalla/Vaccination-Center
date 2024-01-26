@@ -58,10 +58,10 @@
 </head>
 <body>
 <div class="container">
-    <div class="card">
-        <div class="card-header"><h3>Add Vaccination Center</h3></div>
-        <div class="card-body">
-            <form method="post" th:action="@{/saveVaccinationCenter}">
+    <div class="card" style="background-color:#abd3bc;border:none">
+        <div class="card-header" style="background-color:#a0bdac;border:none"><h3>Add Vaccination Center</h3></div>
+        <div class="card-body" style="background-color:#abd3bc;border:none">
+            <form method="post" th:action="@{/saveVaccinationCentre}">
                 <div class="mb-3">
                     <label for="nom" class="form-label">Name:</label>
                     <input type="text" class="form-control" id="nom" name="nom" required>
@@ -70,7 +70,7 @@
                     <label for="adresse" class="form-label">Address:</label>
                     <input type="text" class="form-control" id="adresse" name="adresse" required>
                 </div>
-                <button type="submit" class="btn btn-success">Save</button>
+                <button style="background-color:white;color : black" type="submit" class="btn btn-success">Save</button>
             </form>
         </div>
     </div>

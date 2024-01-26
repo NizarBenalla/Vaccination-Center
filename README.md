@@ -1,4 +1,4 @@
-# README (French)
+# README
 
 ## Prérequis
 
@@ -13,7 +13,7 @@ Si vous utilisez Windows, je recommande d'utiliser Windows Subsystem for Linux (
 Une fois Docker et Docker Compose installés, suivez les étapes ci-dessous pour démarrer le projet :
 
 1. Ouvrez une fenêtre de terminal.
-2. Accédez au répertoire du projet sur WSL ca sera `/mnt/c/Users/remplacer-cela-avec-votre-username/Desktop/ClientVacination`.
+2. Accédez au répertoire du projet sur WSL ca sera `/mnt/c/Users/remplacer-cela-avec-votre-username/Path-du-projet`.
 3. Exécutez la commande suivante pour construire et démarrer le projet :
 
 ```bash

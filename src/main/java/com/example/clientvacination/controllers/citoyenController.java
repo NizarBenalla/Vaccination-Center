@@ -100,7 +100,7 @@ public class citoyenController {
             return "addingVaccinationCenter";
         }
 
-        @PostMapping("/saveCentreVaccination")
+        @PostMapping("/saveVaccinationCentre")
         public String saveCentreVaccination(@RequestParam String nom, @RequestParam String adresse) {
             CentreVaccination centreVaccination = new CentreVaccination();
             centreVaccination.setNom(nom);
